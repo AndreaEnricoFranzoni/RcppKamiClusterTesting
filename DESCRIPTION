@@ -1,0 +1,16 @@
+Package: RcppKamiClusterTesting
+Type: Package
+Title: Testing on KAMI cluster
+Version: 1.0
+Date: 2025-10-24
+Author: Andrea Enrico Franzoni [aut, cre]
+Maintainer: Andrea Enrico Franzoni <andreaenrico.franzoni@gmail.com>
+Description: Tests for compiling Rcpp packages on KAMI cluster
+License: GPL-3
+Imports: Rcpp (>= 1.0.12), ggplot2, grid, gridExtra, viridis, patchwork, latex2exp
+LinkingTo: Rcpp, RcppEigen
+Depends: R (>= 4.0)
+SystemRequirements: C++20, BLAS, LAPACK
+Suggests: testthat (>= 3.0.0)
+RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)

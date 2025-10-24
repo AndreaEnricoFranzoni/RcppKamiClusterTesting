@@ -1,0 +1,64 @@
+###################
+## OPENMP NEEDED ##
+###################
+
+# c++ version used. If changed, change also in the last rows of macOs if clause, as specified in the comments 
+CXX_STD = CXX20         #using c++20
+#CXX_STD = CXX23         #using c++23
+
+# retaining the operative system
+OS = $(shell uname -s)
+# retaining architecture of the operative system (for macOs)
+ARCH = $(shell uname -m)
+
+
+
+# macOS
+ifeq ($(OS),Darwin)
+    # Homebrew path depending on the architecture
+    ifeq ($(ARCH),arm64)        # Apple processor
+        HOMEBREW_PREFIX = /opt/homebrew
+    else                        # Intel processor
+        HOMEBREW_PREFIX = /usr/local
+    endif
+
+    #CC = $(HOMEBREW_PREFIX)/opt/llvm/bin/clang
+    #CXX = $(HOMEBREW_PREFIX)/opt/llvm/bin/clang++
+    PKG_CXXFLAGS = -Xpreprocessor -fopenmp -I$(HOMEBREW_PREFIX)/opt/libomp/include -O3
+    PKG_CXXFLAGS += -stdlib=libc++              
+    PKG_CFLAGS = -fopenmp
+    PKG_CPPFLAGS = -I./fdaPDE-core   -I../inst/include
+    PKG_LIBS = $(LAPACK_LIBS) $(FLIBS) $(BLAS_LIBS)
+    PKG_LIBS += -L$(HOMEBREW_PREFIX)/opt/libomp/lib -lomp
+    PKG_LIBS += -stdlib=libc++                  
+
+
+    #clang default version by Rcpp is not sufficient, has to be taken from Homebrew
+    CXX = $(HOMEBREW_PREFIX)/opt/llvm/bin/clang++
+
+    CXXFLAGS += -O3 -Wall -stdlib=libc++ -std=c++20      #if using c++20: leave this row and comment the next one
+    #CXXFLAGS += -O3 -Wall -stdlib=libc++ -std=c++23      #if using c++23: leave this row and comment the previous one
+    LDFLAGS += -L$(HOMEBREW_PREFIX)/opt/llvm/lib
+    CPPFLAGS += -I$(HOMEBREW_PREFIX)/opt/llvm/include
+
+endif
+
+# Linux
+ifeq ($(OS),Linux)
+    CC = gcc
+    CXX = g++
+    PKG_CXXFLAGS = -fopenmp
+    PKG_CPPFLAGS = -I./fdaPDE-core/fdaPDE
+    PKG_LIBS = $(LAPACK_LIBS) $(FLIBS) $(BLAS_LIBS)
+    PKG_LIBS += -fopenmp
+endif
+
+# Windows (RTools)
+ifeq ($(OS),Windows)
+    CC = gcc
+    CXX = g++
+    PKG_CXXFLAGS = -fopenmp
+    PKG_CPPFLAGS = -I./fdaPDE-core/fdaPDE
+    PKG_LIBS = $(LAPACK_LIBS) $(FLIBS) $(BLAS_LIBS)
+    PKG_LIBS += -fopenmp
+endif
