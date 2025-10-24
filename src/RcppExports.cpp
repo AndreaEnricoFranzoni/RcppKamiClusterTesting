@@ -20,9 +20,19 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// kami_testin
+void kami_testin();
+RcppExport SEXP _RcppKamiClusterTesting_kami_testin() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    kami_testin();
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppKamiClusterTesting_installation_kami_testing", (DL_FUNC) &_RcppKamiClusterTesting_installation_kami_testing, 0},
+    {"_RcppKamiClusterTesting_kami_testin", (DL_FUNC) &_RcppKamiClusterTesting_kami_testin, 0},
     {NULL, NULL, 0}
 };
 
