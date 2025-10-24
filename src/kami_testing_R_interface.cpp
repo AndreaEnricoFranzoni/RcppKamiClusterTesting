@@ -87,7 +87,7 @@ void kami_testing()
   {
     for(std::size_t j = 0; j < omega.cols(); ++j)
     {
-      Rcout << "El(" << i << "," << j << ") in " << loc << ": " << omega(i,j) << std::endl;
+      Rcout << "El(" << i << "," << j << ") in " << loc << ": " << omega(i,j)(loc) << std::endl;
     }
   }
 }
