@@ -81,13 +81,4 @@ void kami_testing()
   Rcout << "Evaluation of the second basis system in " << loc << std::endl;
   Rcout << evaluation_basis_system_2 << std::endl;
   
-  functional_matrix_sparse<double,double> omega = wrap_into_fm<double,double,_DOMAIN_,bsplines_basis>(bs);
-  
-  for(std::size_t i = 0; i < omega.rows(); ++i)
-  {
-    for(std::size_t j = 0; j < omega.cols(); ++j)
-    {
-      Rcout << "El(" << i << "," << j << ") in " << loc << ": " << omega(i,j)(loc) << std::endl;
-    }
-  }
 }
