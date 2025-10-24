@@ -5,7 +5,7 @@ installation_kami_testing <- function() {
     invisible(.Call(`_RcppKamiClusterTesting_installation_kami_testing`))
 }
 
-kami_testin <- function() {
-    invisible(.Call(`_RcppKamiClusterTesting_kami_testin`))
+kami_testing <- function() {
+    invisible(.Call(`_RcppKamiClusterTesting_kami_testing`))
 }
 
