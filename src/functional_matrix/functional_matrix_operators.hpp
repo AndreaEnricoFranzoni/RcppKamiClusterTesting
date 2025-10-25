@@ -47,7 +47,7 @@
 * @details exploiting Expression Templates design pattern
 */
 template <class LO, class RO, class OP, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<LO>  &&  fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<LO>  &&  fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 class BinaryOperator : public Expr<BinaryOperator<LO, RO, OP, INPUT, OUTPUT>, INPUT, OUTPUT>
 {
 public:
@@ -646,7 +646,7 @@ using LogExpr = UnaryOperator<RO, LogOP<INPUT,OUTPUT>, INPUT, OUTPUT>;
 * @return the element-wise sum of the two operands
 */
 template <class LO, class RO, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<LO>  &&  fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<LO>  &&  fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 inline 
 AddExpr<LO, RO, INPUT, OUTPUT>
 operator+(LO const &l, RO const &r)
@@ -665,7 +665,7 @@ operator+(LO const &l, RO const &r)
 * @return the element-wise multiplication of the two operands
 */
 template <class LO, class RO, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<LO>  &&  fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<LO>  &&  fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 inline 
 MultExpr<LO, RO, INPUT, OUTPUT>
 operator*(LO const &l, RO const &r)
@@ -684,7 +684,7 @@ operator*(LO const &l, RO const &r)
 * @return the element-wise difference of the two operands
 */
 template <class LO, class RO, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<LO>  &&  fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<LO>  &&  fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 inline 
 SubExpr<LO, RO, INPUT, OUTPUT>
 operator-(LO const &l, RO const &r)
@@ -701,7 +701,7 @@ operator-(LO const &l, RO const &r)
 * @return the element-wise opposite of the operand
 */
 template <class RO, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 inline 
 MinusExpr<RO, INPUT, OUTPUT>
 operator-(RO const &r)
@@ -718,7 +718,7 @@ operator-(RO const &r)
 * @return the element-wise exponential of the operand
 */
 template <class RO, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 inline 
 ExpExpr<RO, INPUT, OUTPUT>
 exp(RO const &r)
@@ -735,7 +735,7 @@ exp(RO const &r)
 * @return the element-wise logarithm of the operand
 */
 template <class RO, typename INPUT = double, typename OUTPUT = double>
-    requires fm_utils::not_eigen<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
+  requires fm_utils::functional_matrix_like<RO>  &&  (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
 inline 
 LogExpr<RO, INPUT, OUTPUT>
 log(RO const &r)
