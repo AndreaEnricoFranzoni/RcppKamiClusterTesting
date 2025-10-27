@@ -292,7 +292,7 @@ public:
             assert((W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E})[i].rows() == this->n_train()) && (W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E})[i].cols() == this->n_train()));
             assert((W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S})[i].rows() == this->n_train()) && (W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S})[i].cols() == this->n_train()));}
         //number of units to be predicted
-        std::size_t n_pred = W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).size();
+        std::size_t n_pred = W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).size();
 
         //exact estimation
         if(!this->bf_estimation())
