@@ -9,3 +9,7 @@ kami_testing <- function() {
     invisible(.Call(`_RcppKamiClusterTesting_kami_testing`))
 }
 
+predict_FMSGWR_ESC_kami_testing <- function(coeff_stationary_cov_to_pred, coeff_events_cov_to_pred, coordinates_events_to_pred, coeff_stations_cov_to_pred, coordinates_stations_to_pred, units_to_be_predicted, abscissa_ev, model_fitted, n_knots_smoothing_pred = 100L, n_intervals_trapezoidal_quadrature = 100L, target_error_trapezoidal_quadrature = 1e-3, max_iterations_trapezoidal_quadrature = 100L, num_threads = NULL) {
+    .Call(`_RcppKamiClusterTesting_predict_FMSGWR_ESC_kami_testing`, coeff_stationary_cov_to_pred, coeff_events_cov_to_pred, coordinates_events_to_pred, coeff_stations_cov_to_pred, coordinates_stations_to_pred, units_to_be_predicted, abscissa_ev, model_fitted, n_knots_smoothing_pred, n_intervals_trapezoidal_quadrature, target_error_trapezoidal_quadrature, max_iterations_trapezoidal_quadrature, num_threads)
+}
+
