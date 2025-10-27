@@ -138,7 +138,7 @@ enrichB(const FDAGWR_TRAITS::Dense_Matrix& b,
         const std::vector<FDAGWR_TRAITS::fd_obj_x_type>& basis_knots) 
 {
     //WRAP B STATIONARY
-    return Rcpp::List::create(Rcpp::Named(FDAGWR_HELPERS_for_PRED_NAMES::coeff_basis) = Rcpp::wrap(b),
+    return Rcpp::List::create(Rcpp::Named(std::string{FDAGWR_HELPERS_for_PRED_NAMES::coeff_basis}) = Rcpp::wrap(b),
                               Rcpp::Named(FDAGWR_HELPERS_for_PRED_NAMES::basis_t)     = basis_type,
                               Rcpp::Named(FDAGWR_HELPERS_for_PRED_NAMES::n_basis)     = basis_number,
                               Rcpp::Named(FDAGWR_HELPERS_for_PRED_NAMES::basis_knots) = Rcpp::NumericVector(basis_knots.cbegin(), basis_knots.cend()));
