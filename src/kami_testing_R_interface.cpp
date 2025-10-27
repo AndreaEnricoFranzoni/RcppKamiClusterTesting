@@ -42,7 +42,7 @@ using namespace Rcpp;
 
 //
 // [[Rcpp::export]]
-void installation_kami_testing(){   Rcout << "Testing for Kami Cluster"<< std::endl;}
+void installation_kami_testing(){   Rcout << "Testing for Kami Cluster 2"<< std::endl;}
 
 
 //
