@@ -49,6 +49,7 @@ void installation_kami_testing(){   Rcout << "Testing for Kami Cluster"<< std::e
 // [[Rcpp::export]]
 void kami_testing()
 {
+  Rcout << "Post Pull request" << std::endl;
   //creation of a collection of systems of bsplines: in this case, there are two basis systems.
   // Both of them are constructed over 13 knots equally spaced. In the first system, there are 15 bsplines of grade 3,
   // while in the second system there are 14 bsplines of grade 2
