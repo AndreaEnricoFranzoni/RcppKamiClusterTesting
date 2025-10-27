@@ -287,10 +287,10 @@ public:
     override
     {
         assert(W.size() == 2);
-        assert(W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).size() == W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S).size());
+        assert(W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).size() == W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}).size());
         for(std::size_t i = 0; i < W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).size(); ++i){
-            assert((W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E)[i].rows() == this->n_train()) && (W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E)[i].cols() == this->n_train()));
-            assert((W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S)[i].rows() == this->n_train()) && (W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S)[i].cols() == this->n_train()));}
+            assert((W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E})[i].rows() == this->n_train()) && (W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E})[i].cols() == this->n_train()));
+            assert((W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S})[i].rows() == this->n_train()) && (W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S})[i].cols() == this->n_train()));}
         //number of units to be predicted
         std::size_t n_pred = W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).size();
 
@@ -372,15 +372,15 @@ public:
     {
         assert(X_new.size() == 3);
         //controllo le unità statistiche
-        assert(X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C).rows() == X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).rows());
-        assert(X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).rows() == X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S).rows());
-        std::size_t n_pred = X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C).rows();
+        assert(X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C}).rows() == X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).rows());
+        assert(X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).rows() == X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}).rows());
+        std::size_t n_pred = X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C}).rows();
         assert((n_pred == m_BetaE.size()) && (n_pred == m_BetaS.size()));
-        assert((X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C).cols() == m_qc) && (X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).cols() == m_qe) && (X_new.at(fgwr_fms_esc_predictor<INPUT,OUTPUT>::id_S).cols() == m_qs));
+        assert((X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C}).cols() == m_qc) && (X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).cols() == m_qe) && (X_new.at(std::string{fgwr_fms_esc_predictor<INPUT,OUTPUT>::id_S}).cols() == m_qs));
 
-        auto Xc_new = X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C);
-        auto Xe_new = X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E);
-        auto Xs_new = X_new.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S);
+        auto Xc_new = X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_C});
+        auto Xe_new = X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E});
+        auto Xs_new = X_new.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S});
 
         //y_new = X_new*beta = Xc_new*beta_c + Xe_new*beta_e + Xs_new*beta_s
         functional_matrix<INPUT,OUTPUT> y_new_C = fm_prod(Xc_new,m_BetaC,this->number_threads());    //n_pred x 1
