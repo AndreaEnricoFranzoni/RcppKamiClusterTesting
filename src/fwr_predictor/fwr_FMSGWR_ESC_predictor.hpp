@@ -288,7 +288,7 @@ public:
     {
         assert(W.size() == 2);
         assert(W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).size() == W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}).size());
-        for(std::size_t i = 0; i < W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E).size(); ++i){
+        for(std::size_t i = 0; i < W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}).size(); ++i){
             assert((W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E})[i].rows() == this->n_train()) && (W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E})[i].cols() == this->n_train()));
             assert((W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S})[i].rows() == this->n_train()) && (W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S})[i].cols() == this->n_train()));}
         //number of units to be predicted
@@ -300,22 +300,22 @@ public:
             //compute the non-stationary betas in the new locations
             //penalties in the new locations
             //(j_tilde_tilde + Re)^-1
-            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_double_tilde_Re_inv = this->operator_comp().compute_penalty(m_theta_t,m_Xe_train_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E),m_Xe_train,m_theta,m_Re);     //per applicarlo: j_double_tilde_RE_inv[i].solve(M) equivale a ([J_i_tilde_tilde + Re]^-1)*M
+            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_double_tilde_Re_inv = this->operator_comp().compute_penalty(m_theta_t,m_Xe_train_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}),m_Xe_train,m_theta,m_Re);     //per applicarlo: j_double_tilde_RE_inv[i].solve(M) equivale a ([J_i_tilde_tilde + Re]^-1)*M
             //(j_tilde + Rs)^-1
-            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_tilde_Rs_inv        = this->operator_comp().compute_penalty(m_X_s_train_crossed_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S),m_X_s_train_crossed,m_Rs);
+            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_tilde_Rs_inv        = this->operator_comp().compute_penalty(m_X_s_train_crossed_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}),m_X_s_train_crossed,m_Rs);
             //COMPUTING all the m_bs in the new locations, SO THE COEFFICIENTS FOR THE BASIS EXPANSION OF THE STATION-DEPENDENT BETAS
-            m_bs_pred = this->operator_comp().compute_operator(m_X_s_train_crossed_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S),m_y_tilde_new,j_tilde_Rs_inv);
+            m_bs_pred = this->operator_comp().compute_operator(m_X_s_train_crossed_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}),m_y_tilde_new,j_tilde_Rs_inv);
             //COMPUTING all the m_be in the new locations, SO THE COEFFICIENTS FOR THE BASIS EXPANSION OF THE STATION-DEPENDENT BETAS
-            m_be_pred = this->operator_comp().compute_operator(m_theta_t,m_Xe_train_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E),m_y_tilde_tilde_hat,j_double_tilde_Re_inv);
+            m_be_pred = this->operator_comp().compute_operator(m_theta_t,m_Xe_train_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}),m_y_tilde_tilde_hat,j_double_tilde_Re_inv);
         }
         //brute force estimation
         else
         {
-            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_i_Rs_inv = this->operator_comp().compute_penalty(m_psi_t,m_Xs_train_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S),m_Xs_train,m_psi,m_Rs);
-            m_bs_pred = this->operator_comp().compute_operator(m_psi_t,m_Xs_train_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S),m_y_tilde_hat,j_i_Rs_inv);
+            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_i_Rs_inv = this->operator_comp().compute_penalty(m_psi_t,m_Xs_train_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}),m_Xs_train,m_psi,m_Rs);
+            m_bs_pred = this->operator_comp().compute_operator(m_psi_t,m_Xs_train_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_S}),m_y_tilde_hat,j_i_Rs_inv);
 
-            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_i_Re_inv = this->operator_comp().compute_penalty(m_theta_t,m_Xe_train_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E),m_Xe_train,m_theta,m_Re);
-            m_be_pred = this->operator_comp().compute_operator(m_theta_t,m_Xe_train_t,W.at(fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E),m_y_tilde_tilde_hat,j_i_Re_inv);
+            std::vector< Eigen::PartialPivLU<FDAGWR_TRAITS::Dense_Matrix> > j_i_Re_inv = this->operator_comp().compute_penalty(m_theta_t,m_Xe_train_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}),m_Xe_train,m_theta,m_Re);
+            m_be_pred = this->operator_comp().compute_operator(m_theta_t,m_Xe_train_t,W.at(std::string{fwr_FMSGWR_ESC_predictor<INPUT,OUTPUT>::id_E}),m_y_tilde_tilde_hat,j_i_Re_inv);
         }
 
         //
