@@ -31,6 +31,7 @@
 #include "../utility/parameters_wrapper_fdagwr.hpp"
 
 #include <cassert>
+#include <string_view>
 
 template< typename INPUT = double, typename OUTPUT = double >
     requires (std::integral<INPUT> || std::floating_point<INPUT>)  &&  (std::integral<OUTPUT> || std::floating_point<OUTPUT>)
@@ -64,10 +65,10 @@ public:
     /*!
     * @brief IDs for the input maps
     */
-    static constexpr std::string id_C  = COVARIATES_NAMES::Stationary;
-    static constexpr std::string id_NC = COVARIATES_NAMES::Nonstationary;
-    static constexpr std::string id_E  = COVARIATES_NAMES::Event;
-    static constexpr std::string id_S  = COVARIATES_NAMES::Station;
+    inline static constexpr std::string_view id_C  = COVARIATES_NAMES::Stationary;
+    inline static constexpr std::string_view id_NC = COVARIATES_NAMES::Nonstationary;
+    inline static constexpr std::string_view id_E  = COVARIATES_NAMES::Event;
+    inline static constexpr std::string_view id_S  = COVARIATES_NAMES::Station;
 
     /*!
     * @brief Getter for the compute operator

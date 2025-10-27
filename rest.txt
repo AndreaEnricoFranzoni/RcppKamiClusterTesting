@@ -1,0 +1,849 @@
+Loading required package: usethis
+Downloading GitHub repo AndreaEnricoFranzoni/RcppKamiClusterTesting@HEAD
+Installing package into ‘/home/forma/R/x86_64-pc-linux-gnu-library/4.3’
+(as ‘lib’ is unspecified)
+* installing *source* package ‘RcppKamiClusterTesting’ ...
+** using staged installation
+** libs
+using C++ compiler: ‘g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0’
+using C++20
+                 from RcppExports.cpp:4:
+   46 | typedef eigen_packet_wrapper<__m128i, 0> Packet4i;
+      |                                        ^
+   47 | typedef eigen_packet_wrapper<__m128i, 1> Packet16b;
+      |                                        ^
+   49 | template<> struct is_arithmetic<__m128>  { enum { value = true }; };
+      |                                       ^
+   50 | template<> struct is_arithmetic<__m128i> { enum { value = true }; };
+      |                                        ^
+   51 | template<> struct is_arithmetic<__m128d> { enum { value = true }; };
+      |                                        ^
+  222 | template<> struct unpacket_traits<Packet4f> {
+      |                                           ^
+  228 | template<> struct unpacket_traits<Packet2d> {
+      |                                           ^
+ 1124 | ptranspose(PacketBlock<Packet4f,4>& kernel) {
+      |                                  ^
+ 1129 | ptranspose(PacketBlock<Packet2d,2>& kernel) {
+      |                                  ^
+   16 |   struct conj_helper<PACKET_REAL, PACKET_CPLX, false, false> {          \
+      |                                                            ^
+  173 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet2cf,Packet4f)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   29 |   struct conj_helper<PACKET_CPLX, PACKET_REAL, false, false> {          \
+      |                                                            ^
+  173 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet2cf,Packet4f)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   16 |   struct conj_helper<PACKET_REAL, PACKET_CPLX, false, false> {          \
+      |                                                            ^
+  298 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet1cd,Packet2d)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   29 |   struct conj_helper<PACKET_CPLX, PACKET_REAL, false, false> {          \
+      |                                                            ^
+  298 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet1cd,Packet2d)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+                 from kami_testing_R_interface.cpp:1:
+   46 | typedef eigen_packet_wrapper<__m128i, 0> Packet4i;
+      |                                        ^
+   47 | typedef eigen_packet_wrapper<__m128i, 1> Packet16b;
+      |                                        ^
+   49 | template<> struct is_arithmetic<__m128>  { enum { value = true }; };
+      |                                       ^
+   50 | template<> struct is_arithmetic<__m128i> { enum { value = true }; };
+      |                                        ^
+   51 | template<> struct is_arithmetic<__m128d> { enum { value = true }; };
+      |                                        ^
+  222 | template<> struct unpacket_traits<Packet4f> {
+      |                                           ^
+  228 | template<> struct unpacket_traits<Packet2d> {
+      |                                           ^
+ 1124 | ptranspose(PacketBlock<Packet4f,4>& kernel) {
+      |                                  ^
+ 1129 | ptranspose(PacketBlock<Packet2d,2>& kernel) {
+      |                                  ^
+   16 |   struct conj_helper<PACKET_REAL, PACKET_CPLX, false, false> {          \
+      |                                                            ^
+  173 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet2cf,Packet4f)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   29 |   struct conj_helper<PACKET_CPLX, PACKET_REAL, false, false> {          \
+      |                                                            ^
+  173 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet2cf,Packet4f)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   16 |   struct conj_helper<PACKET_REAL, PACKET_CPLX, false, false> {          \
+      |                                                            ^
+  298 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet1cd,Packet2d)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   29 |   struct conj_helper<PACKET_CPLX, PACKET_REAL, false, false> {          \
+      |                                                            ^
+  298 | EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet1cd,Packet2d)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/utility.h:27:101:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/utility.h:27:101:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/woodbury.h:36:35:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/woodbury.h:71:16:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:96:14:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:58:24:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:58:75:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:64:58:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:64:93:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:64:105:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:64:105:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:65:58:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:75:24:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:141:66:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:141:66:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:143:40:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:148:59:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:148:69:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:148:69:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:148:69:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:148:75:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rsi.h:148:84:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:79:39:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:83:118:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:83:118:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:93:24:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:183:97:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:200:65:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rbki.h:206:102:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:73:95:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:73:107:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:73:118:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:79:93:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:79:93:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:79:95:   required from here
+utility/../fdaPDE-core/fdaPDE/src/linear_algebra/rp_chol.h:79:103:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/kd_tree.h:99:41:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/kd_tree.h:99:56:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/kd_tree.h:99:58:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:24:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:458:35:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:458:35:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:248:41:   required from ‘class fdapde::TriangulationBase<3, 3, fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:618:48:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:248:41:   required from ‘class fdapde::TriangulationBase<3, 3, fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:618:48:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:202:47:   required from ‘class fdapde::Simplex<3, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:25:7:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:628:45:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:202:47:   required from ‘class fdapde::Simplex<3, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:25:7:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:628:45:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/hyperplane.h:107:49:   required from ‘class fdapde::HyperPlane<3, 3>’
+/usr/include/c++/13/type_traits:3279:7:   required from ‘constexpr const bool std::is_trivially_copy_constructible_v<fdapde::HyperPlane<3, 3> >’
+/usr/include/c++/13/optional:707:11:   required from ‘class std::optional<fdapde::HyperPlane<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:203:61:   required from ‘class fdapde::Simplex<3, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:25:7:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:628:45:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/hyperplane.h:107:49:   required from ‘class fdapde::HyperPlane<3, 3>’
+/usr/include/c++/13/type_traits:3279:7:   required from ‘constexpr const bool std::is_trivially_copy_constructible_v<fdapde::HyperPlane<3, 3> >’
+/usr/include/c++/13/optional:707:11:   required from ‘class std::optional<fdapde::HyperPlane<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:203:61:   required from ‘class fdapde::Simplex<3, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:25:7:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:628:45:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/hyperplane.h:108:41:   required from ‘class fdapde::HyperPlane<3, 3>’
+/usr/include/c++/13/type_traits:3279:7:   required from ‘constexpr const bool std::is_trivially_copy_constructible_v<fdapde::HyperPlane<3, 3> >’
+/usr/include/c++/13/optional:707:11:   required from ‘class std::optional<fdapde::HyperPlane<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:203:61:   required from ‘class fdapde::Simplex<3, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:25:7:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:628:45:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/hyperplane.h:108:41:   required from ‘class fdapde::HyperPlane<3, 3>’
+/usr/include/c++/13/type_traits:3279:7:   required from ‘constexpr const bool std::is_trivially_copy_constructible_v<fdapde::HyperPlane<3, 3> >’
+/usr/include/c++/13/optional:707:11:   required from ‘class std::optional<fdapde::HyperPlane<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:203:61:   required from ‘class fdapde::Simplex<3, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:25:7:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:628:45:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:202:47:   required from ‘class fdapde::Simplex<1, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:50:11:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >::EdgeType’
+utility/../fdaPDE-core/fdaPDE/src/geometry/utility.h:118:16:   required from ‘class fdapde::internals::index_iterator<fdapde::Triangulation<3, 3>::edge_iterator, fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >::EdgeType>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/utility.h:122:7:   required from ‘class fdapde::internals::filtering_iterator<fdapde::Triangulation<3, 3>::edge_iterator, fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >::EdgeType>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:823:45:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:207:49:   required from ‘class fdapde::Simplex<1, 3>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:50:11:   required from ‘class fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >::EdgeType’
+utility/../fdaPDE-core/fdaPDE/src/geometry/utility.h:118:16:   required from ‘class fdapde::internals::index_iterator<fdapde::Triangulation<3, 3>::edge_iterator, fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >::EdgeType>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/utility.h:122:7:   required from ‘class fdapde::internals::filtering_iterator<fdapde::Triangulation<3, 3>::edge_iterator, fdapde::Tetrahedron<fdapde::Triangulation<3, 3> >::EdgeType>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:823:45:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:738:65:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:248:41:   required from ‘class fdapde::TriangulationBase<1, 1, fdapde::Triangulation<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:26:48:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:248:41:   required from ‘class fdapde::TriangulationBase<1, 1, fdapde::Triangulation<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:26:48:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:202:47:   required from ‘class fdapde::Simplex<1, 1>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:25:41:   required from ‘class fdapde::Segment<fdapde::Triangulation<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:152:37:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/hyperplane.h:107:49:   required from ‘class fdapde::HyperPlane<1, 1>’
+/usr/include/c++/13/type_traits:3279:7:   required from ‘constexpr const bool std::is_trivially_copy_constructible_v<fdapde::HyperPlane<1, 1> >’
+/usr/include/c++/13/optional:707:11:   required from ‘class std::optional<fdapde::HyperPlane<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:203:61:   required from ‘class fdapde::Simplex<1, 1>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:25:41:   required from ‘class fdapde::Segment<fdapde::Triangulation<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:152:37:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/hyperplane.h:107:49:   required from ‘class fdapde::HyperPlane<1, 1>’
+/usr/include/c++/13/type_traits:3279:7:   required from ‘constexpr const bool std::is_trivially_copy_constructible_v<fdapde::HyperPlane<1, 1> >’
+/usr/include/c++/13/optional:707:11:   required from ‘class std::optional<fdapde::HyperPlane<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:203:61:   required from ‘class fdapde::Simplex<1, 1>’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:25:41:   required from ‘class fdapde::Segment<fdapde::Triangulation<1, 1> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:152:37:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:65:106:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:248:41:   required from ‘class fdapde::TriangulationBase<1, 2, fdapde::Triangulation<1, 2> >’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:26:48:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:69:18:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:69:49:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:70:49:   required from here
+In file included from /usr/include/c++/13/string:43,
+                 from /usr/include/c++/13/bits/locale_classes.h:40,
+                 from /usr/include/c++/13/bits/ios_base.h:41,
+                 from /usr/include/c++/13/streambuf:43,
+                 from /usr/include/c++/13/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/13/iterator:66,
+/usr/include/c++/13/bits/allocator.h:195:52: error: ‘std::__cxx11::basic_string<char>(((const char*)"EstimationTechnique"), std::allocator<char>())’ is not a constant expression because it refers to a result of ‘operator new’
+  195 |             return static_cast<_Tp*>(::operator new(__n));
+      |                                      ~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/13/bits/allocator.h:195:52: error: ‘std::__cxx11::basic_string<char>(((const char*)"BruteForceEstimation"), std::allocator<char>())’ is not a constant expression because it refers to a result of ‘operator new’
+/usr/include/c++/13/bits/allocator.h:195:52: error: ‘std::__cxx11::basic_string<char>(((const char*)"number_covariates"), std::allocator<char>())’ is not a constant expression because it refers to a result of ‘operator new’
+utility/data_reader.hpp:60:45:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:221:33:   required from here
+utility/../basis/basis_constant.hpp:107:53:   required from here
+utility/../basis/basis_constant.hpp:123:33:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_constant.hpp:146:18:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/parameters_wrapper_fdagwr.hpp:233:120:   required from here
+weight_matrix/distance_matrix_imp.hpp:46:89:   required from here
+weight_matrix/distance_matrix_imp.hpp:46:91:   required from here
+weight_matrix/distance_matrix_imp.hpp:46:100:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:646:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:37:30:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:58:72:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:79:72:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:33:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:93:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:61:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:102:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:115:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:105:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/kd_tree.h:116:37:   required from ‘struct fdapde::KDTree<6>::RangeType’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:33:30:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 1>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:79:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:33:30:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:80:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:31:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:55:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:80:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:34:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:37:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:50:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:53:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:80:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:34:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:37:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:50:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:53:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:55:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 1]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 1>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:79:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:80:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 1]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 1>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:79:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:31:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 1]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 1>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:79:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:55:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:80:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:34:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:37:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:50:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:53:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:196:75:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+penalization_matrix/penalization_matrix_penalties_policies.hpp:56:26:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/13/vector:66,
+                 from /home/forma/R/x86_64-pc-linux-gnu-library/4.3/Rcpp/include/RcppCommon.h:64,
+/usr/include/c++/13/bits/stl_vector.h: In instantiation of ‘constexpr std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::back() [with _Tp = bsplines_basis<fdapde::Triangulation<1, 1> >; _Alloc = std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > >; reference = bsplines_basis<fdapde::Triangulation<1, 1> >&]’:
+kami_testing_R_interface.cpp:74:49:   required from here
+/usr/include/c++/13/bits/stl_vector.h:1236:16: error: no match for ‘operator*’ (operand type is ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’})
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+In file included from /home/forma/R/x86_64-pc-linux-gnu-library/4.3/Rcpp/include/RcppCommon.h:69:
+/usr/include/c++/13/complex:395:5: note: candidate: ‘template<class _Tp> constexpr std::complex<_Tp> std::operator*(const complex<_Tp>&, const complex<_Tp>&)’
+  395 |     operator*(const complex<_Tp>& __x, const complex<_Tp>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:395:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const std::complex<_Tp>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+/usr/include/c++/13/complex:404:5: note: candidate: ‘template<class _Tp> constexpr std::complex<_Tp> std::operator*(const complex<_Tp>&, const _Tp&)’
+  404 |     operator*(const complex<_Tp>& __x, const _Tp& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:404:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const std::complex<_Tp>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+/usr/include/c++/13/complex:413:5: note: candidate: ‘template<class _Tp> constexpr std::complex<_Tp> std::operator*(const _Tp&, const complex<_Tp>&)’
+  413 |     operator*(const _Tp& __x, const complex<_Tp>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:413:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   candidate expects 2 arguments, 1 provided
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+In file included from utility/../fdaPDE-core/fdaPDE/utility.h:66,
+                 from utility/../fdaPDE-core/fdaPDE/linear_algebra.h:59,
+                 from utility/../fdaPDE-core/fdaPDE/splines.h:23,
+                 from utility/include_fdagwr.hpp:28,
+                 from kami_testing_R_interface.cpp:4:
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:262:1: note: candidate: ‘template<class XprType, class Coeff> constexpr fdapde::MatrixCoeffWiseOp<XprType, Coeff, std::multiplies<void> > fdapde::operator*(const MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>&, Coeff) requires  is_arithmetic_v<Coeff>’
+  262 | operator*(const MatrixBase<XprType::Rows, XprType::Cols, XprType>& lhs, Coeff rhs)
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:262:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:268:1: note: candidate: ‘template<class XprType, class Coeff> constexpr fdapde::MatrixCoeffWiseOp<Coeff, XprType, std::multiplies<void> > fdapde::operator*(Coeff, const MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>&) requires  is_arithmetic_v<Coeff>’
+  268 | operator*(Coeff lhs, const MatrixBase<XprType::Rows, XprType::Cols, XprType>& rhs)
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:268:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   candidate expects 2 arguments, 1 provided
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:316:1: note: candidate: ‘template<class Lhs, class Rhs> constexpr fdapde::MatrixProduct<Lhs, Rhs> fdapde::operator*(const MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>&, const MatrixBase<Rhs::Rows, Rhs::Cols, Rhs>&)’
+  316 | operator*(const MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>& op1, const MatrixBase<Rhs::Rows, Rhs::Cols, Rhs>& op2) {
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:316:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:324:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixBase<Lhs::Rows, Lhs::Cols, Lhs>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/utility/matrix.h:330:1: note:   template argument deduction/substitution failed:
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+In file included from utility/../fdaPDE-core/fdaPDE/fields.h:27,
+                 from utility/../fdaPDE-core/fdaPDE/splines.h:25:
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:145:1: note: candidate: ‘template<int Size, class Lhs, class Rhs> constexpr fdapde::ScalarFieldBinOp<Lhs, Rhs, std::multiplies<void> > fdapde::operator*(const ScalarFieldBase<Size, Derived>&, const ScalarFieldBase<Size, Rhs>&)’
+  145 | operator*(const ScalarFieldBase<Size, Lhs>& lhs, const ScalarFieldBase<Size, Rhs>& rhs) {
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:145:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::ScalarFieldBase<Size, Derived>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:224:31: note: candidate: ‘template<int Size, class Derived, class Coeff> constexpr fdapde::ScalarFieldCoeffOp<Derived, Coeff, std::multiplies<void> > fdapde::operator*(const ScalarFieldBase<Size, Derived>&, Coeff) requires  is_arithmetic_v<Coeff>’
+  224 | FDAPDE_DEFINE_SCALAR_COEFF_OP(operator*, std::multiplies<>)
+      |                               ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:208:59: note: in definition of macro ‘FDAPDE_DEFINE_SCALAR_COEFF_OP’
+  208 |     constexpr ScalarFieldCoeffOp<Derived, Coeff, FUNCTOR> OPERATOR(                                                    \
+      |                                                           ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:224:31: note:   template argument deduction/substitution failed:
+  224 | FDAPDE_DEFINE_SCALAR_COEFF_OP(operator*, std::multiplies<>)
+      |                               ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:208:59: note: in definition of macro ‘FDAPDE_DEFINE_SCALAR_COEFF_OP’
+  208 |     constexpr ScalarFieldCoeffOp<Derived, Coeff, FUNCTOR> OPERATOR(                                                    \
+      |                                                           ^~~~~~~~
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::ScalarFieldBase<Size, Derived>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:224:31: note: candidate: ‘template<int Size, class Derived, class Coeff> constexpr fdapde::ScalarFieldCoeffOp<Coeff, Derived, std::multiplies<void> > fdapde::operator*(Coeff, const ScalarFieldBase<Size, Derived>&) requires  is_arithmetic_v<Coeff>’
+  224 | FDAPDE_DEFINE_SCALAR_COEFF_OP(operator*, std::multiplies<>)
+      |                               ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:215:59: note: in definition of macro ‘FDAPDE_DEFINE_SCALAR_COEFF_OP’
+  215 |     constexpr ScalarFieldCoeffOp<Coeff, Derived, FUNCTOR> OPERATOR(                                                    \
+      |                                                           ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:224:31: note:   template argument deduction/substitution failed:
+  224 | FDAPDE_DEFINE_SCALAR_COEFF_OP(operator*, std::multiplies<>)
+      |                               ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/scalar_field.h:215:59: note: in definition of macro ‘FDAPDE_DEFINE_SCALAR_COEFF_OP’
+  215 |     constexpr ScalarFieldCoeffOp<Coeff, Derived, FUNCTOR> OPERATOR(                                                    \
+      |                                                           ^~~~~~~~
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   candidate expects 2 arguments, 1 provided
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+In file included from utility/../fdaPDE-core/fdaPDE/fields.h:35:
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:145:40: note: candidate: ‘template<class Lhs, class Rhs> constexpr fdapde::MatrixFieldProduct<Lhs, Rhs> fdapde::operator*(const MatrixFieldBase<Xpr::StaticInputSize, Xpr>&, const MatrixFieldBase<Rhs::StaticInputSize, Rhs>&)’
+  145 | constexpr MatrixFieldProduct<Lhs, Rhs> operator*(
+      |                                        ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:145:40: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixFieldBase<Xpr::StaticInputSize, Xpr>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:471:1: note: candidate: ‘template<int Size, class Lhs, class Rhs> constexpr fdapde::MatrixFieldCoeffWiseOp<Lhs, Rhs, std::multiplies<void> > fdapde::operator*(const MatrixFieldBase<Size, Lhs>&, const Rhs&) requires (is_arithmetic_v<Rhs>) || (is_scalar_field_v<Rhs>)’
+  471 | operator*(const MatrixFieldBase<Size, Lhs>& lhs, const Rhs& rhs)
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:471:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixFieldBase<Size, Lhs>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:481:1: note: candidate: ‘template<int Size, class Lhs, class Rhs> constexpr fdapde::MatrixFieldCoeffWiseOp<Lhs, Rhs, std::multiplies<void> > fdapde::operator*(const Lhs&, const MatrixFieldBase<Size, Rhs>&) requires (is_arithmetic_v<Lhs>) || (is_scalar_field_v<Lhs>)’
+  481 | operator*(const Lhs& lhs, const MatrixFieldBase<Size, Rhs>& rhs)
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:481:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   candidate expects 2 arguments, 1 provided
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:491:1: note: candidate: ‘template<int Size, class Lhs, class Rhs> constexpr fdapde::MatrixFieldCoeffWiseOp<Lhs, Rhs, std::divides<void> > fdapde::operator*(const MatrixFieldBase<Size, Lhs>&, const Rhs&) requires (is_arithmetic_v<Rhs>) || (is_scalar_field_v<Rhs>)’
+  491 | operator*(const MatrixFieldBase<Size, Lhs>& lhs, const Rhs& rhs)
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:491:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixFieldBase<Size, Lhs>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:1133:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   ‘SubExpr<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, double, double>’ {aka ‘BinaryOperator<__gnu_cxx::__normal_iterator<bsplines_basis<fdapde::Triangulation<1, 1> >*, std::vector<bsplines_basis<fdapde::Triangulation<1, 1> >, std::allocator<bsplines_basis<fdapde::Triangulation<1, 1> > > > >, int, Subtract<double, double>, double, double>’} is not derived from ‘const fdapde::MatrixFieldBase<Xpr::StaticInputSize, Xpr>’
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+      | ^~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/fields/matrix_field.h:1138:1: note:   template argument deduction/substitution failed:
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+In file included from kami_testing_R_interface.cpp:28:
+functional_matrix/functional_matrix_operators.hpp:671:1: note: candidate: ‘template<class LO, class RO, class INPUT, class OUTPUT>  requires (not_eigen<LO>) && (not_eigen<RO>) && ((integral<INPUT>) || (floating_point<INPUT>)) && ((integral<OUTPUT>) || (floating_point<OUTPUT>)) MultExpr<LO, RO, INPUT, OUTPUT> operator*(const LO&, const RO&)’
+  671 | operator*(LO const &l, RO const &r)
+      | ^~~~~~~~
+functional_matrix/functional_matrix_operators.hpp:671:1: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_vector.h:1236:16: note:   candidate expects 2 arguments, 1 provided
+ 1236 |         return *(end() - 1);
+      |                ^~~~~~~~~~~~
+In file included from /home/forma/R/x86_64-pc-linux-gnu-library/4.3/Rcpp/include/RcppCommon.h:141:
+/home/forma/R/x86_64-pc-linux-gnu-library/4.3/Rcpp/include/Rcpp/complex.h:25:17: note: candidate: ‘Rcomplex operator*(const Rcomplex&, const Rcomplex&)’
+   25 | inline Rcomplex operator*( const Rcomplex& lhs, const Rcomplex& rhs) {
+      |                 ^~~~~~~~
+/home/forma/R/x86_64-pc-linux-gnu-library/4.3/Rcpp/include/Rcpp/complex.h:25:17: note:   candidate expects 2 arguments, 1 provided
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:197:68:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:196:91:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:197:68:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+penalization_matrix/penalization_matrix_penalties_policies.hpp:56:26:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:46:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:197:68:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:979:54:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:979:54:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+  654 |   return internal::first_aligned<int(unpacket_traits<DefaultPacketType>::alignment),Derived>(m);
+      |                                                                          ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:197:68:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:69:50:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:646:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:37:34:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:79:76:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:54:46:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:33:34:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 1>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:79:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:33:34:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+penalization_matrix/penalization_matrix_penalties_policies.hpp:56:26:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:190:59:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 1]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 1>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/interval.h:79:53:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:69:50:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:69:50:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                                       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  190 |          bool Stop = Size==Dynamic || (Size%unpacket_traits<PacketType>::size)==0 || is_same<PacketType,typename unpacket_traits<PacketType>::half>::value>
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  208 |   typedef typename find_best_packet_helper<Size,typename packet_traits<T>::type>::type type;
+      |                                                                                        ^~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:69:50:   required from here
+  654 |   return internal::first_aligned<int(unpacket_traits<DefaultPacketType>::alignment),Derived>(m);
+      |                                                                          ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:192:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 3; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:47:25:   required from ‘fdapde::Tetrahedron<Triangulation>::Tetrahedron(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:793:53:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/tree_search.h:52:31:   required from ‘fdapde::TreeSearch<MeshType>::TreeSearch(const MeshType*) [with MeshType = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1008:82:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:1009:44:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:59:29:   required from ‘fdapde::Tetrahedron<Triangulation>::EdgeType::EdgeType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:830:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 1; int EmbedDim_ = 2]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/segment.h:37:18:   required from ‘fdapde::Segment<Triangulation>::Segment(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<1, 2>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/linear_network.h:43:92:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../fdaPDE-core/fdaPDE/src/geometry/simplex.h:195:19:   required from ‘void fdapde::Simplex<Order_, EmbedDim_>::initialize() [with int Order_ = 2; int EmbedDim_ = 3]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/tetrahedron.h:80:29:   required from ‘fdapde::Tetrahedron<Triangulation>::FaceType::FaceType(int, const Triangulation*) [with Triangulation = fdapde::Triangulation<3, 3>]’
+utility/../fdaPDE-core/fdaPDE/src/geometry/triangulation.h:853:43:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   47 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+   56 |                      >::type PacketReturnType;
+      |                              ^~~~~~~~~~~~~~~~
+utility/../basis/basis_bspline.hpp:208:5:   required from here
+ 1071 |     PacketAlignment = unpacket_traits<PacketScalar>::alignment,
+      |                                                      ^~~~~~~~~
+make: *** [/usr/lib/R/etc/Makeconf:200: kami_testing_R_interface.o] Error 1
+ERROR: compilation failed for package ‘RcppKamiClusterTesting’
+* removing ‘/home/forma/R/x86_64-pc-linux-gnu-library/4.3/RcppKamiClusterTesting’
+In i.p(...) :
+  installation of package ‘/tmp/RtmpbXGATV/file617e51bc093a/RcppKamiClusterTesting_1.0.tar.gz’ had non-zero exit status
+Error in library(RcppKamiClusterTesting) : 
+  there is no package called ‘RcppKamiClusterTesting’
+Execution halted
