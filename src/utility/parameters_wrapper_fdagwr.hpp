@@ -539,7 +539,7 @@ wrap_and_check_basis_number_and_degree(Rcpp::Nullable<Rcpp::IntegerVector> basis
     for(std::size_t i = 0; i < number_of_covariates; ++i){
           //checking B-splines relationship for each covariate, where basis are bsplines
           if ((ns_basis[i] - (degrees[i] + knots_size - static_cast<std::size_t>(1)) != 0) && basis_types[i] == FDAGWR_BASIS_TYPES::_bsplines_){  
-            std::string covariates_type = covariate_type<fdagwr_cov_t>();
+            std::string covariates_type = std::string{covariate_type<fdagwr_cov_t>()};
             std::transform(covariates_type.begin(),covariates_type.end(),covariates_type.begin(),[](unsigned char c) { return std::tolower(c);});
             std::string error_message8 = "The number of basis, bspline basis, for the " + covariates_type + " covariates has to be the degree of the basis + the number of knots - 1";
             throw std::invalid_argument(error_message8);}}
@@ -589,7 +589,7 @@ wrap_and_check_penalizations(Rcpp::NumericVector lambdas,
   //throwing an exception if not
   if (*min_lambda < 0){
     // type of the covariates for which the penalization is used
-    std::string covariates_type = covariate_type<fdagwr_cov_t>();
+    std::string covariates_type = std::string{covariate_type<fdagwr_cov_t>()};
     std::transform(covariates_type.begin(),covariates_type.end(),covariates_type.begin(),[](unsigned char c) { return std::tolower(c);});
     std::string error_message = "Penalization terms for " + covariates_type + " covariates have to be non-negative";
     throw std::invalid_argument(error_message);}
@@ -614,7 +614,7 @@ wrap_and_check_kernel_bandwith(double bandwith)
   //checking that the bandwith is positive, throwing an exception if not
   if (bandwith <= 0){
     // type of the covariates for which the kernel bandwith is used
-    std::string covariates_type = covariate_type<fdagwr_cov_t>();
+    std::string covariates_type = std::string{covariate_type<fdagwr_cov_t>()};
     std::transform(covariates_type.begin(),covariates_type.end(),covariates_type.begin(),[](unsigned char c) { return std::tolower(c);});
     std::string error_message = "Kernel bandwith for " + covariates_type + " covariates has to be positive";
     throw std::invalid_argument(error_message);}
@@ -756,7 +756,7 @@ wrap_predict_input(Rcpp::List pred_input)
     if (pred_input.size() != 9){ throw std::invalid_argument("Lenght of input list model_fitted has to be 8");}
 
     //check that derives from the right algorithm
-    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != algo_type<fdagwr_algo>()){ throw std::invalid_argument("It is not a fitted FMSGWR_ESC");}
+    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != std::string{algo_type<fdagwr_algo>()}){ throw std::invalid_argument("It is not a fitted FMSGWR_ESC");}
   }
 
   //FGWR_FMS_SEC
@@ -766,7 +766,7 @@ wrap_predict_input(Rcpp::List pred_input)
     if (pred_input.size() != 9){ throw std::invalid_argument("Lenght of input list model_fitted has to be 8");}
 
     //check that derives from the right algorithm
-    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != algo_type<fdagwr_algo>()){ throw std::invalid_argument("It is not a fitted FMSGWR_SEC");}
+    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != std::string{algo_type<fdagwr_algo>()}){ throw std::invalid_argument("It is not a fitted FMSGWR_SEC");}
   }
 
   //FMGWR
@@ -776,7 +776,7 @@ wrap_predict_input(Rcpp::List pred_input)
     if (pred_input.size() != 7){ throw std::invalid_argument("Lenght of input list model_fitted has to be 6");}
 
     //check that derives from the right algorithm
-    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != algo_type<fdagwr_algo>()){ throw std::invalid_argument("It is not a fitted FMGWR");}
+    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != std::string{algo_type<fdagwr_algo>()}){ throw std::invalid_argument("It is not a fitted FMGWR");}
   }
 
   //FGWR
@@ -786,7 +786,7 @@ wrap_predict_input(Rcpp::List pred_input)
     if (pred_input.size() != 4){ throw std::invalid_argument("Lenght of input list model_fitted has to be 4");}
 
     //check that derives from the right algorithm
-    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != algo_type<fdagwr_algo>()){ throw std::invalid_argument("It is not a fitted FGWR");}
+    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != std::string{algo_type<fdagwr_algo>()}){ throw std::invalid_argument("It is not a fitted FGWR");}
   }
 
   //FWR 
@@ -796,7 +796,7 @@ wrap_predict_input(Rcpp::List pred_input)
     if (pred_input.size() != 4){ throw std::invalid_argument("Lenght of input list model_fitted has to be 4");}
 
     //check that derives from the right algorithm
-    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != algo_type<fdagwr_algo>()){ throw std::invalid_argument("It is not a fitted FWR");}
+    if( as<std::string>(pred_input[std::string{FDAGWR_HELPERS_for_PRED_NAMES::model_name}]) != std::string{algo_type<fdagwr_algo>()}){ throw std::invalid_argument("It is not a fitted FWR");}
   }
 }
 
