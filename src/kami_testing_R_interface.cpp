@@ -90,7 +90,8 @@ void kami_testing()
 
 
 
-
+//
+// [[Rcpp::export]]
 Rcpp::List FMSGWR_ESC_kami_testing(Rcpp::NumericMatrix y_points,
                       Rcpp::NumericVector t_points,
                       double left_extreme_domain,
